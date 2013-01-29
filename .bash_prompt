@@ -1,0 +1,75 @@
+#!/bin/bash
+#
+#
+
+function display_clock {
+  local CYAN="$(tput setaf 6)"
+  local GREEN="$(tput setaf 2; tput bold)"
+  local NORM="$(tput sgr0)"
+  local CLOCK="$CYAN[$GREEN$(date +%H:%M)$NORM$CYAN]$NORM"
+  let clock_x=$(tput cols)-7  # <columns in display> - len($CLOCK)
+  #tput cuu1                   # move cursor up 1 line
+  tput sc                     # save cursor
+  tput cup 1 ${clock_x}       # move cursor to row 0, col $clock_x
+  echo -n ${CLOCK}
+  tput rc
+}
+
+function parse_git_dirty() {
+  local STATUS=$(git status 2> /dev/null | tail -n1)
+  #[[ $STATUS && !($STATUS =~ "nothing( added)? to commit") ]] && echo "*"
+  [[ $STATUS && !($STATUS =~ "nothing") ]] && echo "*"
+}
+
+function parse_git_branch() {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
+}
+
+function prompt_command {
+  #set_user_colors
+  display_clock
+  history -a
+  #FM=$(grep 'MemFree' /proc/meminfo | awk '{print $2}')  # Free memory
+  #PSC=$(find /proc -type d -regex '/proc/[0-9]+' -maxdepth 1 | wc | awk '{print $2}')
+  #PSC=$(ps - A|wc -l)
+}
+
+function long_blue {
+  # Long gradient blue-cyan-blue
+  case `id -u` in
+    # Colors for root user
+    0) local COLOR1='\[\e[00;33m\]'     # yellow
+       local COLOR2='\[\e[00;30;47m\]'  # black on white
+       local COLOR3='\[\e[00;33;47m\]'  # yellow on white
+       local COLOR4='\[\e[00;33m\]' ;;  # yellow
+    # Colors for all other users
+    *) local COLOR1='\[\e[01;34m\]'     # bold/bright blue
+       local COLOR2='\[\e[00;30;46m\]'  # black on cyan
+       local COLOR3='\[\e[00;34;46m\]'  # blue on cyan
+       local COLOR4='\[\e[00;34m\]' ;;  # blue
+  esac
+  local NONE='\[\e[m\]'
+  local GRAD0='\[\e[00m\]'
+  local GRAD1='░▒▓█'  # \[\333\262\261\260\]
+  local GRAD2='█▓▒░'  # \[\260\261\262\333\]
+  local COLOR5='\[\e[01;33m\]'  # bold/bright yellow
+  local COLOR6='\[\e[01;36m\]'  # bold/bright cyan
+  local COLOR7='\[\e[00;32m\]'  # green
+  local COLOR8='\[\e[00;37m\]'  # white
+  local RED='\[\e[1;31m\]'
+
+  # Pre-Prompt Function
+  PROMPT_COMMAND=prompt_command
+
+  PS1="${COLOR1}╔═<${COLOR4}${GRAD1}${COLOR3}${GRAD2}${COLOR2}\u@\h${COLOR3}${GRAD1}${COLOR4}${GRAD2}${COLOR1}>══<${COLOR5}\$(who|wc -l|sed 's/^[ ]*//')${COLOR1}>══<${COLOR6}\$(tty|sed 's:/dev/::')${COLOR1}>$NONE\n\
+${COLOR1}╚═<${COLOR7}\$(pwd|sed "s=`echo $HOME | sed 's:\/:\\\/:g'`=~=" | sed 's=^\(.\{5\}\)\(.*\)\(.\{15\}\)$=\1...\2...\3=' | sed 's=\.\.\.\.\.\.==' | sed 's=\(.*\)\.\.\..*\.\.\.\(.*\)=\1...\2=')${COLOR4}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")${COLOR5}\$(parse_git_branch)${RED}\$(parse_git_dirty)${COLOR1}>=- ${COLOR8}\\\$ ${NONE}"
+  PS2="${COLOR1}+> ${NONE}"
+}
+
+#function short_blue {
+# Short gradient blue-cyan-blue
+#PS1="$COLOR3$GRAD1$COLOR2\h$COLOR3$GRAD2$COLOR4 $COLOR6 $(date +%l:%M%P) \d$NONE\n $COLOR5\u$COLOR8:$COLOR7\$(pwd | sed "s=`echo $HOME | sed 's:\/:\\\/:g'`=~=" | sed 's=^\(.\{5\}\)\(.*\)\(.\{15\}\)$=\1...\2...\3=' | sed 's=\.\.\.\.\.\.==' | sed 's=\(.*\)\.\.\..*\.\.\.\(.*\)=\1...\2=')$COLOR8\\\$ $GRAD0"
+#PS2="$COLOR1$GRAD1$COLOR3$GRAD2$COLOR4$GRAD1$COLOR5> $GRAD0"
+#}
+
+long_blue

@@ -1,0 +1,13 @@
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
+#export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
+#export NODE_PATH=/usr/local/node:/usr/local/node/lib/node_modules
+export NODE_PATH=/Users/rexmac/.nvm/v0.6.14/lib/node_modules
+export NACL_SDK_ROOT=~/dev/nacl_sdk/pepper_16
+export EDITOR=/usr/bin/vim
+export MANPAGER="less -X"
+export HISTCONTROL=ignoredups
+export HISTFILESIZE=500000
+export HISTIGNORE="ls:ls *:ll:cd:cd *:pwd:exit:date:* --help"
+export TOMBOY_PATH=~/Dropbox/TomboyNotes

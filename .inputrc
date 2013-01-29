@@ -1,0 +1,17 @@
+# Be 8 bit clean
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# Auto completion options
+set show-all-if-ambiguous on
+set completion-ignore-case on
+
+# Keybindings
+"\e[1~": beginning-of-line        # Home
+"\e[4~": end-of-line              # End
+"\e[5~": history-search-backward  # Page Up
+"\e[6~": histor-search-forward    # Page down
+"\e[3~": delete-char              # Delete
+"\e[5C": forward-word             # Ctrl+right
+"\e[5D": backward-word            # Ctrl+left

@@ -32,6 +32,7 @@ set hlsearch            " highlight search pattern matches
 set ignorecase          " case insensitive search
 set incsearch           " highlight search pattern matches as it is typed
 set laststatus=2        " Always show status line
+set noshowmode          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set list                " show invisible characters
 set lcs=tab:>.,trail:.,extends:#,nbsp:.
 set noerrorbells        " no bells for errors with messages
@@ -71,7 +72,8 @@ au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, et
 
 " Powerline status line
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " In text files, always limit the width of text to 78 characters
 "au BufRead *.txt set tw=78
@@ -112,7 +114,8 @@ nmap ,hx wbF<df>f<df>
 au BufRead,BufNewFile *.json setfiletype json syntax=javascript
 au BufRead,BufNewFile *.t set syntax=perl
 au BufRead,BufNewFile *.xul setfiletype xml
-au filetype html,xml set listchars-=tab:>.
+au FileType html,xml set listchars-=tab:>.
+au FileType html,markdown set wrap linebreak nolist
 
 " Save a file as root
 noremap <leader>W :w !sudo tee % > /dev/null<CR>
@@ -121,8 +124,11 @@ noremap <leader>W :w !sudo tee % > /dev/null<CR>
 set pastetoggle=<leader>p
 map <leader>p :set invpaste paste?<CR>
 
-" Lin number toggle
+" Line number toggle
 nnoremap <leader>n :set invnumber<CR>
+
+" Spell check toggle
+map <F6> :setlocal spell! spelllang=en_us<CR>
 
 """"""""""""""""""" CUSTOM FUNCTIONS
 
@@ -157,4 +163,5 @@ endfunc
 nnoremap <F1> :call ToggleFocusMode()<cr>
 
 colorscheme molokai
+
 

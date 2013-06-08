@@ -1,9 +1,9 @@
 ###****************************************************************************
 ### Rex's .bashrc file
 ###
-### rex@webjuice.com
+### rex@rexmac.com
 ###
-### Last modified: 2008-12-20
+### Last modified: 2013-02-13
 ###****************************************************************************
 
 ###******************************************************************
@@ -16,5 +16,13 @@ fi
 ### Only source ~/.bash_profile for interactive shells
 [ -n "$PS1" ] && source ~/.bash_profile
 
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# {{{
+# Node Completion - Auto-generated, do not touch.
+shopt -s progcomp
+for f in $(command ls ~/.node-completion); do
+  f="$HOME/.node-completion/$f"
+  test -f "$f" && . "$f"
+done
+# }}}

@@ -32,10 +32,10 @@ set hlsearch            " highlight search pattern matches
 set ignorecase          " case insensitive search
 set incsearch           " highlight search pattern matches as it is typed
 set laststatus=2        " Always show status line
-set noshowmode          " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set list                " show invisible characters
 set lcs=tab:>.,trail:.,extends:#,nbsp:.
 set noerrorbells        " no bells for errors with messages
+set noshowmode          " Hide the default mode text (e.g., INSERT below the status line); Powerline shows the mode instead
 set nostartofline       " Don't reset cursor to start of line when moving around
 set nowrap              " disable line wrapping
 set number              " show line numbers
@@ -127,7 +127,7 @@ map <leader>p :set invpaste paste?<CR>
 " Line number toggle
 nnoremap <leader>n :set invnumber<CR>
 
-" Spell check toggle
+" Spell-check toggle
 map <F6> :setlocal spell! spelllang=en_us<CR>
 
 """"""""""""""""""" CUSTOM FUNCTIONS
@@ -163,5 +163,4 @@ endfunc
 nnoremap <F1> :call ToggleFocusMode()<cr>
 
 colorscheme molokai
-
 

@@ -1,7 +1,10 @@
 ^a,c    Create new window
 ^a,a    Switch to previously accessed window
 ^a,"    List current windows in session
+^a,,    Rename current window
+^a,z    Zoom/Unzoom current pane
 ^a,ESC  Toggle copy mode
 ^a,|    Split window horizontally
 ^a,-    Split window vertically
+^a,r    Reload tmux.conf
 ^a,h    Print this cheatsheet

@@ -10,7 +10,7 @@
 ### Source global definitions
 ###
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+    source /etc/bashrc
 fi
 
 ### Only source ~/.bash_profile for interactive shells

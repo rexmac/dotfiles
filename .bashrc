@@ -26,3 +26,8 @@ for f in $(command ls ~/.node-completion); do
   test -f "$f" && . "$f"
 done
 # }}}
+
+# Tmuxinator Completion
+if [ -f ~/.bin/tmuxinator.bash ]; then
+  source ~/.bin/tmuxinator.bash
+fi

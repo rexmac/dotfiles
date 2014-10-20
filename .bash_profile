@@ -21,20 +21,21 @@ set -o noclobber
 shopt -s cdspell
 shopt -s histappend
 
-[[ -r $HOME/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+[[ -r $HOME/.dircolors ]] && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
 
 ### Node Version Manager
-if [ -f ~/.nvm/nvm.sh ]; then
-  . ~/.nvm/nvm.sh
-fi
-nvm use 0.10.1
+#if [ -f ~/.nvm/nvm.sh ]; then
+#  . ~/.nvm/nvm.sh
+#fi
+#nvm use 0.10.28
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
+export TERM="xterm-256color"
 ### tmux
-if [ "$PS1" != "" -a "${STARTED_TMUX:-x}" = x -a "${SSH_TTY:-x}" != x ]; then
-  STARTED_TMUX=1; export STARTED_TMUX
-  sleep 1
-  ( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
-  echo "tmux failed to start"
-fi
+#if [ "$PS1" != "" -a "${STARTED_TMUX:-x}" = x -a "${SSH_TTY:-x}" != x ]; then
+#  STARTED_TMUX=1; export STARTED_TMUX
+#  sleep 1
+#  ( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
+#  echo "tmux failed to start"
+#fi

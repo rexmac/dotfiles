@@ -30,3 +30,8 @@
   ;untracked = cyan
 [core]
   whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+[user]
+	name = Rex McConnell
+	email = rex@rexmac.com
+[push]
+	default = simple

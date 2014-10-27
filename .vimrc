@@ -45,7 +45,7 @@ set shiftround          " round indent to multiple of 'shiftwidth'
 set showcmd             " show (partial) command on last line
 set showmatch           " show matching brackets/parenthesis
 set smartcase           " case sensitive when uc present
-set softtabstop=2 tabstop=2 shiftwidth=2
+set softtabstop=4 tabstop=4 shiftwidth=4
 set title               " show filename in title of window
 set ttyfast             " fast terminal connection
 set undofile
@@ -61,6 +61,23 @@ command Wq wq
 command W w
 command Q q
 
+" Easier split navigation
+"nnoremap <silent> <C-Left> <c-w>h
+"nnoremap <silent> <C-Right> <c-w>l
+"nnoremap <silent> <C-Up> <c-w>k
+"nnoremap <silent> <C-Down> <c-w>j
+
+" Explorer mode options
+let g:netrw_liststyle=3
+map <leader>l :Explore<cr>
+
+" EasyTags options
+let g:easytags_file = '~/.vim/tags'
+let g:easytags_dynamic_files = 2
+
+" Tagbar options
+nmap <F8> :TagbarToggle<CR>
+
 " Backups and views
 au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
 au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
@@ -73,7 +90,10 @@ au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, et
 " Powerline status line
 "set guifont=Bitstream\ Vera\ Sans\ Mono\ for\ Powerline:h14
 "let g:Powerline_symbols = 'fancy'
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
+"set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " In text files, always limit the width of text to 78 characters
 "au BufRead *.txt set tw=78

@@ -49,3 +49,12 @@
 [submodule ".vim/bundle/tagbar-phpctags.vim"]
 	path = .vim/bundle/tagbar-phpctags.vim
 	url = https://github.com/vim-php/tagbar-phpctags.vim.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/vim-indent-guides"]
+	path = .vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule ".vim/bundle/molokai"]
+	path = .vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git

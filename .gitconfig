@@ -10,6 +10,10 @@
   ls = ls-files
   lsi = ls-files -o -i --exclude-standard
   st = status
+  last = log -1 HEAD
+  tree = "forest --pretty=format:\"%C(red)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\" --style=15 --reverse"
+  unstage = reset HEAD --
+  rmbranch = "!f(){ git branch -d ${1} && git push origin --delete ${1}; };f"
 [branch]
   autosetupmerge = true
 [color]
@@ -29,9 +33,35 @@
   changed = yellow
   ;untracked = cyan
 [core]
-  whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	excludesfile = /Users/rmcconnell/.gitignore_global
 [user]
 	name = Rex McConnell
 	email = rex@rexmac.com
 [push]
 	default = simple
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path =.
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[credential]
+	helper = osxkeychain

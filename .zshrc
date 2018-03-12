@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/rmcconnell/.oh-my-zsh
+export ZSH=/Users/rexmac/.oh-my-zsh
 
 
 set -K
@@ -66,13 +66,13 @@ plugins=(ant brew common-aliases encode64 gitfast git-extras jsontools tmuxinato
 
 # User configuration
 
-export PATH="/Users/rmcconnell/bin:/Users/rmcconnell/.rvm/bin:/Users/rmcconnell/Library/Python/2.7/bin:/Users/rmcconnell/pear/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+export PATH="/Users/rexmac/bin:/Users/rexmac/Library/Python/3.6/bin:/Users/rexmac/Library/Python/2.7/bin:/Users/rexmac/pear/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 [[ -r $HOME/.dircolors ]] && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
 
-PERL_MB_OPT="--install_base \"/Users/rmcconnell/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/rmcconnell/perl5"; export PERL_MM_OPT;
+PERL_MB_OPT="--install_base \"/Users/rexmac/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/rexmac/perl5"; export PERL_MM_OPT;
 
 source $ZSH/oh-my-zsh.sh
 
@@ -93,7 +93,7 @@ export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ##export NODE_PATH=/usr/local/node:/usr/local/node/lib/node_modules
-##export NODE_PATH=/Users/rmcconnell/.nvm/v0.10.32/lib/node_modules
+##export NODE_PATH=/Users/rexmac/.nvm/v0.10.32/lib/node_modules
 #export NACL_SDK_ROOT=~/dev/nacl_sdk/pepper_16
 export EDITOR=/usr/bin/vim
 export GOPATH=$HOME/go
@@ -102,9 +102,9 @@ export NODE_ENV=local
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=500000
 export HISTIGNORE="ls:ls *:ll:cd:cd *:pwd:exit:date:* --help"
-export PERL5LIB=/Users/rmcconnell/perl5/lib/perl5
+export PERL5LIB=/Users/rexmac/perl5/lib/perl5
 
-export PATH="/Users/rmcconnell/.composer/vendor/bin:$PATH"
+export PATH="/Users/rexmac/.composer/vendor/bin:$PATH"
 
 ### Node Version Manager
 export NVM_DIR="$HOME/.nvm"
@@ -112,7 +112,7 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
  nvm use default
 fi
-export PATH="/Users/rmcconnell/.rvm/gems/ruby-2.1.2/bin:/Users/rmcconnell/.rvm/gems/ruby-2.1.2@global/bin:/Users/rmcconnell/.rvm/rubies/ruby-2.1.2/bin:$PATH"
+#export PATH="/Users/rexmac/.rvm/gems/ruby-2.1.2/bin:/Users/rexmac/.rvm/gems/ruby-2.1.2@global/bin:/Users/rexmac/.rvm/rubies/ruby-2.1.2/bin:$PATH"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -178,3 +178,12 @@ bindkey "[D" backward-word
 bindkey "[C" forward-word
 bindkey "^[b" beginning-of-line
 bindkey "^[f" end-of-line
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

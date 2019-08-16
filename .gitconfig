@@ -9,9 +9,12 @@
   loa = log --graph --decorate --pretty=oneline --abbrev-commit --all
   ls = ls-files
   lsi = ls-files -o -i --exclude-standard
+  lsm = branch --merged master
   st = status
   last = log -1 HEAD
-  tree = "forest --pretty=format:\"%C(red)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\" --style=15 --reverse"
+  pf = "!git push --force-with-lease"
+  tree = "~/bin/git-forest --pretty=format:\"%C(red)%h %C(magenta)(%ar) %C(blue)%an %C(reset)%s\" --style=15 --reverse"
+  squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
   unstage = reset HEAD --
   rmbranch = "!f(){ git branch -d ${1} && git push origin --delete ${1}; };f"
 [branch]
@@ -33,6 +36,7 @@
   changed = yellow
   ;untracked = cyan
 [core]
+	editor = /usr/bin/vim
 	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = /Users/rmcconnell/.gitignore_global
 [user]
@@ -63,5 +67,10 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+	algorithm = patience
 [credential]
 	helper = osxkeychain
+[pager]
+	branch = false
+[protocol]
+	version = 2

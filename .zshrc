@@ -1,6 +1,18 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/rexmac/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Cool tools
+# - [LSD](https://github.com/Peltoche/lsd)
+# - [lolcat](https://github.com/busyloop/lolcat)
+# - [Powerline Extra Symbols](https://github.com/ryanoasis/powerline-extra-symbols)
+# - [Powerlevel9k](https://github.com/Powerlevel9k/powerlevel9k/)
+# - [Bullet Train](https://github.com/caiogondim/bullet-train.zsh)
+# - [ripgrep](https://github.com/BurntSushi/ripgrep)
+# - [fd](https://github.com/sharkdp/fd)
+# - [fzf](https://github.com/junegunn/fzf)
+
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/rexmcconnell/.oh-my-zsh"
 
 set -K
 
@@ -13,12 +25,17 @@ BULLETTRAIN_GIT_FG="243"
 #BULLETTRAIN_GIT_DIRTY=" %F{red}✘%F{black} "
 #BULLETTRAIN_GIT_CLEAN=" %F{green}✔%F{black} "
 
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="bullet-train"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -53,7 +70,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="dd.mm.yyyy"
+HIST_STAMPS="yyyy.mm.dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -62,49 +79,53 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ant brew common-aliases encode64 gitfast git-extras jsontools tmuxinator urltools vagrant zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+  common-aliases
+  encode64
+  gitfast
+  jsontools
+  urltools
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/Users/rexmac/bin:/Users/rexmac/Library/Python/3.6/bin:/Users/rexmac/Library/Python/2.7/bin:/Users/rexmac/pear/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+unsetopt correct_all
+setopt correct
+
+export PATH="$PATH:/Users/rexmcconnell/Library/Android/sdk/platform-tools/:/Users/rexmcconnell/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 [[ -r $HOME/.dircolors ]] && eval "$(gdircolors -b ~/.dircolors)" || eval "$(gdircolors -b)"
 
-PERL_MB_OPT="--install_base \"/Users/rexmac/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/rexmac/perl5"; export PERL_MM_OPT;
+PERL_MB_OPT="--install_base \"/Users/rexmcconnell/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/rexmcconnell/perl5"; export PERL_MM_OPT;
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+export LANG=en_US.UTF-8
 
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ##export NODE_PATH=/usr/local/node:/usr/local/node/lib/node_modules
-##export NODE_PATH=/Users/rexmac/.nvm/v0.10.32/lib/node_modules
+##export NODE_PATH=/Users/rexmcconnell/.nvm/v0.10.32/lib/node_modules
 #export NACL_SDK_ROOT=~/dev/nacl_sdk/pepper_16
-export EDITOR=/usr/bin/vim
+export EDITOR=/usr/local/bin/code
+export GITHUB_TOKEN="314f8ca982f81efe78403b5d465298e45b48e6c8"
 export GOPATH=$HOME/go
 export MANPAGER="less -X"
-export NODE_ENV=local
+export NODE_ENV=development
 export HISTCONTROL=ignoredups
 export HISTFILESIZE=500000
 export HISTIGNORE="ls:ls *:ll:cd:cd *:pwd:exit:date:* --help"
-export PERL5LIB=/Users/rexmac/perl5/lib/perl5
+export PERL5LIB=/Users/rexmcconnell/perl5/lib/perl5
 
-export PATH="/Users/rexmac/.composer/vendor/bin:$PATH"
+# export PATH="$PATH:${GOPATH//://bin:}/bin"
 
 ### Node Version Manager
 export NVM_DIR="$HOME/.nvm"
@@ -112,10 +133,19 @@ if [ -f "$NVM_DIR/nvm.sh" ]; then
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
  nvm use default
 fi
-#export PATH="/Users/rexmac/.rvm/gems/ruby-2.1.2/bin:/Users/rexmac/.rvm/gems/ruby-2.1.2@global/bin:/Users/rexmac/.rvm/rubies/ruby-2.1.2/bin:$PATH"
+
+### Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -126,52 +156,6 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias ci="/usr/bin/vim"
-alias df="/bin/df -h"
-alias diff="/usr/local/bin/colordiff"
-alias du="/usr/bin/du -h"
-alias ffs="/usr/bin/sudo !!"
-alias grep="/usr/bin/grep --color=auto --exclude-dir .git --exclude-dir .svn --exclude-dir .tags"
-alias ls="gls --color"
-alias ll="gls --color -l -h"
-alias la="gls --color -a -h"
-alias lla="gls --color -l -a"
-alias lf="gls --color -l -F -h"
-alias lt="gls --color -l -F -h -t -r"
-alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-alias sv="/usr/bin/sudo -e"
-alias vi="/usr/bin/vim"
-alias whois="whois -h whois-servers.net"
-
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-
-### Delete merged branches
-deleteMerged() {
-    git branch --merged | grep -v "\*" | xargs -n 1 git branch -d
-}
-alias deletemerged=deleteMerged
-
-### Colored MAN pages
-man() {
-  env \
-    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-    LESS_TERMCAP_md=$(printf "\e[1;31m") \
-    LESS_TERMCAP_me=$(printf "\e[0m") \
-    LESS_TERMCAP_se=$(printf "\e[0m") \
-    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-    LESS_TERMCAP_ue=$(printf "\e[0m") \
-    LESS_TERMCAP_us=$(printf "\e[1;32m") \
-    man "$@"
-}
-
-# Enable autosuggestions automatically. (deprecated)
-#zle-line-init() {
-#    zle autosuggest-start
-#}
 zle -N zle-line-init
 
 bindkey "[D" backward-word
@@ -179,11 +163,18 @@ bindkey "[C" forward-word
 bindkey "^[b" beginning-of-line
 bindkey "^[f" end-of-line
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/rexmac/.nvm/versions/node/v8.6.0/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+# load dev, but only if present and the shell is interactive
+if [[ -f /opt/dev/dev.sh ]] && [[ $- == *i* ]]; then
+  source /opt/dev/dev.sh
+fi
+
+typeset -g ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE='20'
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/rexmcconnell/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/rexmcconnell/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/rexmcconnell/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/rexmcconnell/google-cloud-sdk/completion.zsh.inc'; fi

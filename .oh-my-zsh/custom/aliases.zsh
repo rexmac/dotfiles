@@ -1,0 +1,25 @@
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias ci="/usr/bin/vim"
+alias df="/bin/df -h"
+alias diff="/usr/local/bin/colordiff"
+alias du="/usr/bin/du -h"
+alias elasticfuck="bundle exec rake elasticsearch:drop && bundle exec rake elasticsearch:reindex"
+alias ffs="/usr/bin/sudo !!"
+alias grep="/usr/bin/grep --color=auto --exclude-dir .git --exclude-dir .svn --exclude-dir .tags"
+alias la="ls -a -h"
+alias lf="ls -l -F -h"
+alias ll="ls -l -h"
+alias lla="ls -l -a"
+alias ls="lsd"
+alias lt="ls -l -F -h -t -r"
+alias pstree="pstree -g 3"
+alias sv="/usr/bin/sudo -e"
+alias vi="/usr/bin/vim"
+alias whois="whois -h whois-servers.net"
+alias yarn="nocorrect yarn"
+
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+

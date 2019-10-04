@@ -10,6 +10,8 @@
 # - [ripgrep](https://github.com/BurntSushi/ripgrep)
 # - [fd](https://github.com/sharkdp/fd)
 # - [fzf](https://github.com/junegunn/fzf)
+# - [forgit](https://github.com/wfxr/forgit)
+# - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/rexmcconnell/.oh-my-zsh"
@@ -90,6 +92,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+source $ZSH/custom/plugins/forgit.zsh
 
 # User configuration
 
@@ -116,7 +119,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ##export NODE_PATH=/Users/rexmcconnell/.nvm/v0.10.32/lib/node_modules
 #export NACL_SDK_ROOT=~/dev/nacl_sdk/pepper_16
 export EDITOR=/usr/local/bin/code
-export GITHUB_TOKEN="314f8ca982f81efe78403b5d465298e45b48e6c8"
+export GITHUB_TOKEN=""
 export GOPATH=$HOME/go
 export MANPAGER="less -X"
 export NODE_ENV=development
@@ -126,6 +129,9 @@ export HISTIGNORE="ls:ls *:ll:cd:cd *:pwd:exit:date:* --help"
 export PERL5LIB=/Users/rexmcconnell/perl5/lib/perl5
 
 # export PATH="$PATH:${GOPATH//://bin:}/bin"
+
+export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+export FZF_ALT_C_COMMAND='fd --type d . --color=never'
 
 ### Node Version Manager
 export NVM_DIR="$HOME/.nvm"

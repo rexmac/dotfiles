@@ -12,6 +12,11 @@
 # - [fzf](https://github.com/junegunn/fzf)
 # - [forgit](https://github.com/wfxr/forgit)
 # - [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+# - [bat](https://github.com/sharkdp/bat)
+# - [hexyl](https://github.com/sharkdp/hexyl)
+# - [hyperfine](https://github.com/sharkdp/hyperfine)
+# - [misc](https://remysharp.com/2018/08/23/cli-improved)
+# - [htop](http://hisham.hm/htop/index.php)
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/rexmcconnell/.oh-my-zsh"
@@ -119,7 +124,6 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 ##export NODE_PATH=/Users/rexmcconnell/.nvm/v0.10.32/lib/node_modules
 #export NACL_SDK_ROOT=~/dev/nacl_sdk/pepper_16
 export EDITOR=/usr/local/bin/code
-export GITHUB_TOKEN=""
 export GOPATH=$HOME/go
 export MANPAGER="less -X"
 export NODE_ENV=development

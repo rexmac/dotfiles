@@ -1,5 +1,9 @@
 # rexmac's dotfiles
 
+# Setup
+
+Run the `setup.sh` script.
+
 ## VIM Bundles/Plugins
 
 I'm fairly certain there is some overlap with some of the plugins below, but this is waht I'm currently using. Someday, I'll start fresh and determine what is and isn't necessary.

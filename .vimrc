@@ -170,5 +170,11 @@ function! ToggleFocusMode()
 endfunc
 nnoremap <F1> :call ToggleFocusMode()<cr>
 
-colorscheme molokai
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'tender'
 
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+colorscheme tender

@@ -1,6 +1,0 @@
-{
-	"phpcs_executable_path": "/Users/rmcconnell/pear/bin/phpcs",
-	"php_cs_fixer_executable_path": "/Users/rmcconnell/bin/php-cs-fixer",
-	"phpcs_php_path": "/usr/bin/php",
-    "phpcs_additional_args": "--standard=PSR2"
-}
